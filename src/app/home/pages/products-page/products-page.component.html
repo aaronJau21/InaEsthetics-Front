@@ -1,0 +1,39 @@
+<div class="mt-9 px-5">
+  <p class="text-center text-3xl">Listado de los Productos</p>
+
+  <div class="demo-button-container">
+    <button mat-raised-button class="demo-button">Add data</button>
+    <button mat-raised-button class="demo-button">Remove data</button>
+  </div>
+
+  <table
+    mat-table
+    [dataSource]="products"
+    class="mat-elevation-z8 products-table"
+  >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <th mat-cell *matCellDef="let element">{{ element.id }}</th>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <th mat-cell *matCellDef="let element">{{ element.nombre }}</th>
+    </ng-container>
+
+    <ng-container matColumnDef="precio">
+      <th mat-header-cell *matHeaderCellDef>Precio</th>
+      <th mat-cell *matCellDef="let element">{{ element.precio }}</th>
+    </ng-container>
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <th mat-cell *matCellDef="let element">
+        <button mat-flat-button>Editar</button>
+        <button mat-button>Eliminar</button>
+      </th>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
