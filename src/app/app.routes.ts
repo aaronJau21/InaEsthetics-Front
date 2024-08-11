@@ -6,7 +6,7 @@ import { inAuthGuard } from './Auth/guard/in-auth.guard';
 export const routes: Routes = [
   {
     path: 'login',
-    canActivate: [ inAuthGuard ],
+    // canActivate: [ inAuthGuard ],
     component: LoginComponent
   },
   {
@@ -20,7 +20,11 @@ export const routes: Routes = [
       },
       {
         path: 'products',
-        loadComponent: () => import( './home/pages/products-page/products-page.component' )
+        loadComponent: () => import( './home/pages/products/products-page/products-page.component' )
+      },
+      {
+        path: 'products/create',
+        loadComponent: () => import( './home/pages/products/create-product-page/create-product-page.component' )
       }
     ]
   },
